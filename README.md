@@ -22,7 +22,7 @@ This project is part of a class assignment focused on learning database manageme
 ## Database Schema
 Below is the schema diagram for our database, outlining the structure and relationships of the tables:
 
-![Database Schema](media/db_diagram.png)
+![Database Schema](media/db-diagram.png)
 
 _The diagram illustrates the tables and relationships involved in the time tracker application._
 

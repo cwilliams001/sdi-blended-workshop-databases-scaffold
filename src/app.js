@@ -91,7 +91,75 @@ app.delete('/users/:id', (req, res) => {
 });
 
 
+app.get('/project_categories', (req, res) => {
+  knex('project_categories')
+    .select('*')
+    .then(categories => {
+      res.json(categories);
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
 
+app.get('/project_categories/:id', (req, res) => {
+  const { id } = req.params;
+  knex('project_categories')
+    .select('*')
+    .where('category_id', id)
+    .first()
+    .then(categories => {
+      if (categories) {
+        res.json(categories);
+      } else {
+        res.status(404).send(`Project Category with ID ${id} not found`);
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
+app.post('/project_categories', (req, res) => {
+  const { type } = req.body;
+  knex('project_categories')
+    .insert({ type })
+    .then(() => {
+      res.status(201).send('Category created successfully');
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
+app.post('/project_categories', (req, res) => {
+  const { type } = req.body;
+  knex('project_categories')
+    .insert({ type })
+    .then(() => {
+      res.status(201).send('Category created successfully');
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
+
+app.delete('/project_categories/:category_id', (req, res) => {
+  const { category_id } = req.params;
+  knex('project_categories')
+    .where('category_id', category_id)
+    .del()
+    .then(count => {
+      if (count) {
+        res.status(200).send(`Category deleted successfully`);
+      } else {
+        res.status(404).send(`Category with ID ${category_id} not found`);
+      }
+    })
+    .catch(error => {
+      res.status(500).json({ error });
+    });
+});
 
 
 
