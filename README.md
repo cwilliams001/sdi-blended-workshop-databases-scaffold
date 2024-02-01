@@ -29,9 +29,24 @@ _The diagram illustrates the tables and relationships involved in the time track
 ## API Endpoints
 The application includes the following endpoints for user management:
 
+### Users
 - **GET /users** - Retrieve all users
 - **GET /users/:id** - Retrieve a single user by ID
 - **POST /users** - Create a new user
 - **PUT /users/:id** - Update a user
 - **DELETE /users/:id** - Delete a user
+
+### Project Categories
+- **GET /project_categories** - Retrieve all project categories 
+- **GET /project_categories/:id** - Retrieve a single project category by ID
+- **POST /project_categories** - Create a new project category
+- **PUT /project_categories/:id** - Update a project category
+- **DELETE /project_categories/:id** - Delete a project category
+
+### Companies
+- **GET /companies** - Retrieve all companies
+- **GET /companies/:id** - Retrieve a single company by ID
+- **POST /companies** - Create a new company
+- **PUT /companies/:id** - Update a company
+- **DELETE /companies/:id** - Delete a company
 
